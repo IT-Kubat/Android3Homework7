@@ -9,7 +9,8 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -27,31 +28,43 @@
             android:onClick="onClickHybrid"/>
 
         <Button
-            android:id="@+id/btn_polyline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="polyline" />
-        <Button
             android:id="@+id/btn_pol_del"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line"
+            android:text="delete"
             android:onClick="onClickPolygonDel"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_polygon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPolygon"
+                android:text="polygon"
+                android:layout_marginRight="30dp"/>
 
-        <Button
-            android:id="@+id/btn_polygon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="polygon"
-            android:onClick="onClickPolygon"/>
+            <Button
+                android:id="@+id/btn_polyline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="polyline"
+                android:layout_marginLeft="30dp"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
     <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:id="@+id/map"
         tools:context=".MapsActivity"
         android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
 
 </LinearLayout>

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initControlViews();
         Pref.init(this);
         if (savedPlace != null && getSharedPreferences(Pref.PREFERENCE_NAME, Context.MODE_PRIVATE) != null){
             savedPlace = Pref.getLocation(savedPlace);
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapLongClick(LatLng latLng) {
-        Toast.makeText(this, "Long click", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Long click", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -220,9 +220,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void onClickPolygonDel(View view) {
         addPoligonOptions();
-        Pref.saveLocation(savedPlace);
+        Pref.clear();
         Toast.makeText(this, "You deleted", Toast.LENGTH_SHORT).show();
-        Log.e("TAG", "onClickPolygon: " + savedPlace );
+        Log.e("TAG", "onClickPolygonDel: " + savedPlace  );
     }
 
     public void onClickPolygon(View view) {
